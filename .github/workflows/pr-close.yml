@@ -25,12 +25,10 @@ jobs:
     name: Deploy to dev
     environment:
        name: dev
-       url: http://google.com
     runs-on: ubuntu-latest
     steps:
-    # Download artifacts
-    - run: |
-        echo # TEST DEV DEPLOYMENT RUNNING
+    - run: 
+        echo "# TEST DEV DEPLOYMENT RUNNING"
   prod_deployment:
     needs: dev_deployment
     name: Deploy to dev
