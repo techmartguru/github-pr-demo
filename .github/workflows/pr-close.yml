@@ -27,16 +27,14 @@ jobs:
        name: dev
     runs-on: ubuntu-latest
     steps:
-    - run: 
-        echo "# TEST DEV DEPLOYMENT RUNNING"
-  prod_deployment:
-    needs: dev_deployment
-    name: Deploy to dev
-    environment:
-       name: stage
-       url: http://google.com
-    runs-on: ubuntu-latest
-    steps:
-    # Download artifacts
     - run: |
-        echo TEST DEV DEPLOYMENT RUNNING
+        echo # TEST DEV DEPLOYMENT RUNNING
+
+  prod_deployment:
+    needs: dev_deployment
+    name: Deploy to stage
+    environment: stage
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo # Deploy on stage Running now
