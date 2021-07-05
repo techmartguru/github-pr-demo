@@ -20,3 +20,25 @@ jobs:
     steps:
     - run: |
         echo PR #${{ github.event.number }} has been closed without being merged
+  dev_deployment:
+    needs: merge_job
+    name: Deploy to dev
+    environment:
+       name: dev
+       url: http://google.com
+    runs-on: ubuntu-latest
+    steps:
+    # Download artifacts
+    - run: |
+        echo # TEST DEV DEPLOYMENT RUNNING
+  prod_deployment:
+    needs: dev_deployment
+    name: Deploy to dev
+    environment:
+       name: stage
+       url: http://google.com
+    runs-on: ubuntu-latest
+    steps:
+    # Download artifacts
+    - run: |
+        echo TEST DEV DEPLOYMENT RUNNING
